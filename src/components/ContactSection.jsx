@@ -59,7 +59,7 @@ export const ContactSection = () => {
                     href="mailto:hello@gmail.com"
                     className="text-muted-foreground hover:text-primary"
                   >
-                    hello@gmail.com
+                    zubairrahman@iut-dhaka.edu
                   </a>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export const ContactSection = () => {
                     href="tel:+11234567890"
                     className="text-muted-foreground hover:text-primary"
                   >
-                    +1 (123) 456-7890
+                    01863835789
                   </a>
                 </div>
               </div>
@@ -86,7 +86,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium">Location</h4>
                   <span className="text-muted-foreground">
-                    Vancouver, BC, Canada
+                    Banasree, Dhaka
                   </span>
                 </div>
               </div>

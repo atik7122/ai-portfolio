@@ -1,118 +1,306 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+const ProjectSection = () => {
+  /* ===========================
+     Applied / Product Projects
+  ============================ */
+  const appliedProjects = [
+    {
+      title: "Paralegal Agent & Visa Petition Agent",
+      category: "Agentic AI · RAG · Full-Stack",
+      description:
+        "Agentic retrieval-augmented drafting system using multi-agent orchestration to generate visa petitions, LoRs, and legal drafts with evaluation and versioning.",
+      stack: [
+        "Next.js",
+        "React",
+        "Supabase",
+        "PostgreSQL",
+        "Vector Search",
+        "n8n",
+      ],
+    },
+    {
+      title: "Movement-Monitoring Wearable",
+      category: "IoT · Edge AI · Healthcare",
+      description:
+        "Edge-AI wearable performing on-device inference to detect unusual patient movement and trigger caregiver alerts in real time.",
+      stack: [
+        "Raspberry Pi Zero W",
+        "MPU-9250 IMU",
+        "Python",
+        "Embedded ML",
+      ],
+    },
+  ];
 
-const projects = [
-  {
-    id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 2,
-    title: "Orbit Analytics Dashboard",
-    description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 3,
-    title: "E-commerce Platform",
-    description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-];
+  /* ===========================
+     Research & Academic Projects
+  ============================ */
+  const researchProjects = [
+    {
+      title: "Sentiment Analysis with Transformer Ensembling",
+      category: "Research · NLP · Transformers",
+      description:
+        "SE-vocabulary augmentation and transformer ensembling achieving 1–26% F1 improvement across software-engineering datasets. Published at ICSOFT 2023.",
+      stack: ["Transformers", "PyTorch", "NLP", "Ensembling"],
+    },
+    {
+      title: "Complex Nurse Care Activity Recognition",
+      category: "Computer Vision · HAR · Healthcare",
+      description:
+        "Smartphone-based HAR system robust to noisy labels using denoising filters, overlapping windows, and Random Forests.",
+      stack: [
+        "Machine Learning",
+        "Random Forest",
+        "Signal Processing",
+        "HAR",
+      ],
+    },
+    {
+      title: "Bangla License Plate Detection",
+      category: "Computer Vision · Synthetic Data",
+      description:
+        "Improved Bangla license-plate detection using synthetic data generation from GTA-V to address real-world data scarcity.",
+      stack: ["YOLO", "OpenCV", "Synthetic Data"],
+    },
+  ];
 
-export const ProjectsSection = () => {
+  /* ===========================
+     Professional Technical Projects
+  ============================ */
+  const professionalProjects = [
+    {
+      icon: "🤖",
+      title: "ARPU Enhancer Model",
+      description:
+        "Contextual multi-armed bandit system integrated with offer recommendation engine.",
+      impact: "ARPU uplift optimization",
+    },
+    {
+      icon: "📡",
+      title: "Network Coverage Monitor",
+      description:
+        "Geospatial intelligence system using KD/Ball-tree indexing.",
+      impact: "2 weeks → 2 hours processing",
+    },
+    {
+      icon: "🎯",
+      title: "New-Site Recommender",
+      description:
+        "Set-cover optimization solver using greedy algorithms.",
+      impact: "58% business potential gain",
+    },
+    {
+      icon: "👁️",
+      title: "Trade Visibility System",
+      description:
+        "Object detection across 700k+ retail outlets with real-time inference.",
+      impact: "~75% recall in production",
+    },
+    {
+      icon: "📊",
+      title: "Customer Segmentation",
+      description:
+        "360° segmentation of 50M+ customers using behavioral modeling.",
+      impact: "Targeted advertising platform",
+    },
+    {
+      icon: "⏰",
+      title: "Intervention Time Model",
+      description:
+        "Regression-based intervention time prediction model.",
+      impact: "67% conversion rate",
+    },
+  ];
+
+  /* ===========================
+     Technical Expertise
+  ============================ */
+  const expertise = [
+    {
+      icon: "🧠",
+      title: "Machine Learning & AI",
+      skills: [
+        "Multi-armed Bandit Systems",
+        "LSTM / RNN",
+        "Ensemble Methods",
+        "Anomaly Detection",
+        "Recommender Systems",
+      ],
+    },
+    {
+      icon: "👁️",
+      title: "Computer Vision",
+      skills: [
+        "Object Detection (YOLO)",
+        "OCR",
+        "Edge Detection",
+        "Color Quantization",
+        "Production Monitoring",
+      ],
+    },
+    {
+      icon: "🗺️",
+      title: "Geospatial Analysis",
+      skills: [
+        "KD / Ball Trees",
+        "Location Intelligence",
+        "Coverage Analysis",
+        "Network Optimization",
+      ],
+    },
+    {
+      icon: "🤖",
+      title: "LLM & Agentic Systems",
+      skills: [
+        "Retrieval Augmented Generation (RAG)",
+        "Multi-agent Orchestration",
+        "Prompt Engineering",
+        "Workflow Automation",
+      ],
+    },
+  ];
+
   return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Featured <span className="text-primary">Projects</span>
+    <section id="projects" className="py-24 px-4">
+      <div className="container mx-auto max-w-6xl space-y-24">
+
+        {/* PAGE TITLE */}
+        <h2 className="text-3xl md:text-4xl font-bold text-center">
+          Selected <span className="text-primary">Projects</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience.
-        </p>
+        {/* Applied Projects */}
+        <div>
+          <h3 className="text-2xl font-bold mb-8">
+            Applied <span className="text-primary">AI Projects</span>
+          </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
-            >
-              <div className="h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, index) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {appliedProjects.map((project, index) => (
+              <div key={index} className="bg-card p-6 rounded-xl shadow-xs">
+                <h4 className="font-semibold text-lg mb-1">
+                  {project.title}
+                </h4>
+                <p className="text-sm text-primary mb-2">
+                  {project.category}
+                </p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((tech, i) => (
                     <span
-                      key={index}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                      key={i}
+                      className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full"
                     >
-                      {tag}
+                      {tech}
                     </span>
                   ))}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
 
-                <h3 className="text-xl font-semibold mb-1">
+        {/* Research Projects */}
+        <div>
+          <h3 className="text-2xl font-bold mb-8">
+            Research & <span className="text-primary">Academic Projects</span>
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {researchProjects.map((project, index) => (
+              <div key={index} className="bg-card p-6 rounded-xl shadow-xs">
+                <h4 className="font-semibold text-lg mb-1">
                   {project.title}
-                </h3>
-
-                <p className="text-muted-foreground text-sm mb-4">
+                </h4>
+                <p className="text-sm text-primary mb-2">
+                  {project.category}
+                </p>
+                <p className="text-sm text-muted-foreground mb-4">
                   {project.description}
                 </p>
-
-                <div className="flex space-x-3">
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/80 hover:text-primary transition-colors"
-                  >
-                    <ExternalLink size={20} />
-                  </a>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/80 hover:text-primary transition-colors"
-                  >
-                    <Github size={20} />
-                  </a>
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="text-xs bg-primary/10 text-primary px-3 py-1 rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="text-center mt-12">
+        {/* Professional Projects */}
+        <div>
+          <h3 className="text-2xl font-bold mb-8">
+            Professional <span className="text-primary">Technical Projects</span>
+          </h3>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {professionalProjects.map((project, index) => (
+              <div
+                key={index}
+                className="bg-card p-6 rounded-xl shadow-xs card-hover"
+              >
+                <div className="text-3xl mb-3">{project.icon}</div>
+                <h4 className="font-semibold mb-2">{project.title}</h4>
+                <p className="text-sm text-muted-foreground mb-3">
+                  {project.description}
+                </p>
+                <p className="text-sm text-primary font-medium">
+                  Impact: {project.impact}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Expertise */}
+        <div>
+          <h3 className="text-2xl font-bold mb-8">
+            Technical <span className="text-primary">Expertise Demonstrated</span>
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {expertise.map((group, index) => (
+              <div key={index} className="bg-card p-6 rounded-xl shadow-xs">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-3xl">{group.icon}</span>
+                  <h4 className="text-xl font-semibold">{group.title}</h4>
+                </div>
+
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {group.skills.map((skill, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 bg-primary rounded-full" />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* GitHub Button */}
+        <div className="text-center pt-8">
           <a
-            href="https://github.com/machadop1407"
+            href="https://github.com/YOUR_GITHUB_USERNAME"
             target="_blank"
             rel="noopener noreferrer"
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition"
           >
-            Check My GitHub <ArrowRight size={16} />
+            View on GitHub →
           </a>
         </div>
+
       </div>
     </section>
   );
 };
+
+export default ProjectSection;

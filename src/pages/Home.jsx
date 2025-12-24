@@ -6,7 +6,7 @@ import { HeroSection } from "../components/HeroSection";
 import { Navbar } from "../components/Navbar";
 import { PassionsSection } from "../components/PassionsSection";
 import { ProfessionalSection } from "../components/ProfessionalSection";
-import { ProjectsSection } from "../components/ProjectsSection";
+import ProjectsSection from "../components/ProjectsSection";
 import { SkillsSection } from "../components/SkillsSection";
 import { Theme } from "../components/Theme";
 
