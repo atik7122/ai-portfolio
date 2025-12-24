@@ -1,18 +1,17 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Chatbot from './components/Chatbot';
-
+import { Home } from "./pages/Home";
 function App() {
   return (
-    // <Router>
-    //   <Navbar />
-    //   <Routes>
-    //     <Route path="/" element={<Home />} />
-    //     <Route path="/academia" element={<Academia />} />
-    //     <Route path="/professional" element={<Professional />} />
-    //     <Route path="/projects" element={<Projects />} />
-    //     <Route path="/passions" element={<Passions />} />
-    //   </Routes>
-    // </Router>
+    <>
+    <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+        </Routes>
+    </BrowserRouter>
     <Chatbot/>
+    </>
+    
   );
 }
 
