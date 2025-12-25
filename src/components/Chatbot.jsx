@@ -29,14 +29,25 @@ export default function Chatbot() {
     setLoading(true);
 
     try {
-      const reply = await askAI(userMessage);
+      const result = await askAI(userMessage);
 
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", text: reply },
-      ]);
+// result = { reply: "...", scrollTo: "projects" }
 
-      speak(reply); // 🔊 AI speaks
+setMessages((prev) => [
+  ...prev,
+  { role: "assistant", text: result.reply },
+]);
+
+speak(result.reply);
+
+// 🔽 AUTO-SCROLL TO SECTION
+if (result.scrollTo) {
+  const section = document.getElementById(result.scrollTo);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+}
+ // 🔊 AI speaks
     } catch {
       const errorMsg = "Sorry, something went wrong.";
       setMessages((prev) => [

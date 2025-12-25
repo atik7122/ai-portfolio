@@ -174,8 +174,11 @@ export default async function askAI(userInput) {
     text.includes("university") ||
     text.includes("cgpa")
   ) {
-    return knowledgeBase.education;
-  }
+  return {
+    reply: knowledgeBase.education,
+    scrollTo: "academia"
+  };
+}
 
   if (
     text.includes("research") ||
@@ -193,8 +196,11 @@ export default async function askAI(userInput) {
     text.includes("company")||
     text.includes("work")
   ) {
-    return knowledgeBase.experience;
-  }
+  return {
+    reply: knowledgeBase.experience,
+    scrollTo: "professionals"
+  };
+}
 
   if (
     text.includes("robi") ||
@@ -239,7 +245,10 @@ export default async function askAI(userInput) {
   text.includes("tech stack") ||
   text.includes("tools")
 ) {
-  return knowledgeBase.skills;
+  return {
+    reply: knowledgeBase.skills,
+    scrollTo: "skills"
+  };
 }
 
 if (
@@ -276,13 +285,16 @@ if (
 
 // Projects – general
 if (
-    text.includes("project") ||
-    text.includes("projects") ||
-    text.includes("work") ||
-    text.includes("portfolio")||
+  text.includes("project") ||
+  text.includes("projects") ||
+  text.includes("work") ||
+  text.includes("portfolio") ||
   text.includes("built")
 ) {
-  return knowledgeBase.projects;
+  return {
+    reply: knowledgeBase.projects,
+    scrollTo: "projects"
+  };
 }
 
 // Agentic / LLM projects
@@ -331,7 +343,10 @@ if (
   text.includes("photography") ||
   text.includes("design")
 ) {
-  return knowledgeBase.passions;
+  return {
+    reply: knowledgeBase.passions,
+    scrollTo: "passions"
+  };
 }
 
 // Photography specific
@@ -395,10 +410,16 @@ if (
   text.includes("hire") ||
   text.includes("collaborate")
 ) {
-  return knowledgeBase.contact;
+  return {
+    reply: knowledgeBase.contact,
+    scrollTo: "contact"
+  };
 }
 
 
 
   return knowledgeBase.fallback;
+
+
+  
 }

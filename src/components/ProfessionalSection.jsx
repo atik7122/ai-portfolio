@@ -10,7 +10,7 @@ const Card = ({ children }) => (
 
 export const ProfessionalSection = () => {
   return (
-    <section id="professional" className="py-24 px-4">
+    <section id="professionals" className="py-24 px-4">
       <div className="container mx-auto max-w-6xl space-y-20">
 
         {/* ===== Section Title ===== */}
