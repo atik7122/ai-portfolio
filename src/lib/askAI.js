@@ -1,4 +1,3 @@
-// src/lib/askAI.js
 
 const knowledgeBase = {
         h: `
@@ -155,18 +154,22 @@ const knowledgeBase = {
 export default async function askAI(userInput) {
   const text = userInput.toLowerCase();
 
-  if (
-    text.includes("hi") ||
-    text.includes("hello") ||
-    text.includes("hey") ||
-    text.includes("whatsup")
-  ) {
-    return knowledgeBase.h;
-  }
+if (/\b(hi|hello|hey|whatsup)\b/.test(text)) {
+  return {
+    reply: knowledgeBase.h,
+    scrollTo: null
+  };
+}
 
-  if (text.includes("who") || text.includes("about")) {
-    return knowledgeBase.intro;
-  }
+
+  if (
+  /\b(who is|about him|about zubair|who's he)\b/.test(text)
+) {
+  return {
+    reply: knowledgeBase.intro,
+    scrollTo: "hero"
+  };
+}
 
   if (
     text.includes("education") ||
