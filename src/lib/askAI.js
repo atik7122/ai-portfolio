@@ -794,19 +794,19 @@ if (
   return {
     replyText: "Here are the languages he speaks.",
     voiceText: passions.languages,
-    scrollTo: "languages"
+    scrollTo: "passions"
   };
 }
 
 
 if (
-/\b(philosophy|life philosophy|mindset|beliefbeliefs|values|life|motivationhow does he think|what is his mindsetwhat motivates him|life values)\b/i.test(text)
+/\b(philosophy|life philosophy|mindset|beliefbeliefs|values|life|motivation|how does he think|what is his mindset|what motivates him|life values)\b/i.test(text)
 
 ) {
   return {
     replyText: "Here’s his life philosophy.",
     voiceText: passions.philosophy,
-    scrollTo: "philosophy"
+    scrollTo: "passions"
   };
 }
 
