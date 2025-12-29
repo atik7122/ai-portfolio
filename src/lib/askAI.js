@@ -243,15 +243,15 @@ if (
 
 
   //Education Part
-  if (
-/\b(education|study|studies|studying|university|college|academic background|educational background|where did he study|what did he study|which university did he attend|tell me about his education|his education)\b/i.test(text)
-  ) {
-  return {
-    replyText: "sure..",
-    voiceText: knowledgeBase.education,
-    scrollTo: "academia"
-  };
-}
+//   if (
+// /\b(education|study|studies|studying|university|college|academic background|educational background|where did he study|what did he study|which university did he attend|tell me about his education|his education)\b/i.test(text)
+//   ) {
+//   return {
+//     replyText: "sure..",
+//     voiceText: knowledgeBase.education,
+//     scrollTo: "academia"
+//   };
+// }
   if (
     /\b(publications|publication|paper|papers|research|researchs|about his publications|can you tell me about his publications|about his papers|about his researchs)\b/i.test(text)
 ) {
