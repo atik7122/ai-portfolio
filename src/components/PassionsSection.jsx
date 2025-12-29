@@ -16,9 +16,9 @@ export const PassionsSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-16">
-          Beyond AI and data science, I express myself through photography and
-          graphic design. I create in the moment — balancing creativity,
-          technology, and life.
+          Beyond AI and data science, I express myself through photography and graphic design. 
+          I work with lighting, composition, post-processing, and Adobe's creative suite, 
+          creating in the moment.
         </p>
 
         {/* Photography */}
@@ -30,15 +30,13 @@ export const PassionsSection = () => {
     </h3>
 
     <p className="text-muted-foreground">
-      Capturing moments through the lens keeps me present. From street
-      photography to portraits, I focus on composition, lighting, and
-      storytelling as they happen.
+      Capturing moments through the lens is how I stay present. From street photography to portraits, 
+      I focus on composition, lighting, and storytelling as they happen.
     </p>
 
     <p className="text-muted-foreground">
-      Former Head of Creative Fields at IUTPS and VP Photography at
-      Neutrino ACC — I learned that the best shots come from being fully
-      in the now.
+      My time as Head of Creative Fields at IUTPS and VP Photography at 
+      Neutrino ACCtaught me that the best shots come from being fully in the now.
     </p>
 
     <div className="flex flex-wrap gap-3 text-sm">
@@ -99,16 +97,15 @@ export const PassionsSection = () => {
     </h3>
 
     <p className="text-muted-foreground">
-      My design work complements my photography. I craft complete visual
-      stories using Adobe’s creative tools, color theory, and layout
-      composition.
+      My design work complements my photography, allowing me to craft complete visual stories in the present. I work with Adobe's creative tools, color theory, and layout composition, transforming ideas into visuals today. 
+      From photo manipulation to digital art, I enjoy the creative process as it unfolds.
     </p>
 
     <div className="flex flex-wrap gap-3 text-sm">
       <span className="badge">Adobe Suite</span>
       <span className="badge">Color Theory</span>
-      <span className="badge">Layout Design</span>
-      <span className="badge">Digital Art</span>
+      <span className="badge">Visual Design</span>
+      <span className="badge">Layout Composition</span>
     </div>
 
     <a
@@ -124,13 +121,13 @@ export const PassionsSection = () => {
 
 
         {/* Pets + Languages */}
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-1 gap-10">
 
           {/* Pets */}
           <div className="card-hover bg-card p-6 rounded-lg">
-  <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-    <PawPrint className="text-primary" /> My Furry Companions
-  </h3>
+      <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
+        <PawPrint className="text-primary" /> My Furry Companions
+      </h3>
 
   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
     {/* Poltu */}
@@ -139,11 +136,11 @@ export const PassionsSection = () => {
         <img
           src="/poltu.png"
           alt="Poltu the adventurous explorer"
-          className="w-full h-40 object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-60 object-cover transition-transform duration-500 hover:scale-105"
         />
       </div>
       <p className="text-sm text-muted-foreground">
-        <strong className="text-foreground">Poltu</strong> <br />The adventurous explorer
+        <strong className="text-foreground text-2xl">Poltu</strong> <br />The adventurous explorer
       </p>
     </div>
 
@@ -153,11 +150,11 @@ export const PassionsSection = () => {
         <img
           src="/perona.png"
           alt="Perona the gentle soul"
-          className="w-full h-40 object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-60 object-cover transition-transform duration-500 hover:scale-105"
         />
       </div>
       <p className="text-sm text-muted-foreground">
-        <strong className="text-foreground">Perona</strong> <br />The gentle soul
+        <strong className="text-foreground text-2xl">Perona</strong> <br />The gentle soul
       </p>
     </div>
 
@@ -167,11 +164,11 @@ export const PassionsSection = () => {
         <img
           src="/puti.png"
           alt="Puti the house princess"
-          className="w-full h-40 object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-60 object-cover transition-transform duration-500 hover:scale-105"
         />
       </div>
       <p className="text-sm text-muted-foreground">
-        <strong className="text-foreground">Puti</strong> <br />The house princess
+        <strong className="text-foreground text-2xl">Puti</strong> <br />The house princess
       </p>
     </div>
   </div>
@@ -179,7 +176,11 @@ export const PassionsSection = () => {
 
 
           {/* Languages */}
-          <div className="card-hover bg-card p-6 rounded-lg">
+          
+        </div>
+
+
+        <div className="card-hover  p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
               <Languages className="text-primary" /> Languages
             </h3>
@@ -194,15 +195,16 @@ export const PassionsSection = () => {
               <strong>Bengali</strong> — Native
             </p>
           </div>
-        </div>
 
         {/* Philosophy */}
         <div className="mt-16 text-center max-w-3xl mx-auto">
           <h3 className="text-2xl font-semibold mb-4">🎯 Life Philosophy</h3>
           <p className="text-muted-foreground">
-            Balance technical expertise with creative expression.  
-            See the world through multiple lenses.  
-            Create in the present moment.
+            Balance technical expertise with creative expression; 
+            See the world through multiple lenses; 
+            Find beauty in both data and nature; 
+            Create in the present moment; 
+            Next time is next time, now is now...
           </p>
         </div>
       </div>

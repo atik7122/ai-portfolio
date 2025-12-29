@@ -1,78 +1,99 @@
 import { useState } from "react";
 import askAI from "../lib/askAI";
-import { speak } from "../lib/speak";
 import useWhisperLikeVoice from "../lib/useWhisperLikeVoice";
-
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      text: "Hi! I’m Zubair’s AI assistant. Ask me anything about his work, research, or experiences.",
+      text: "Hi! I’m Zubair’s AI assistant. Ask me anything about his work, research, or experience.",
     },
   ]);
-  const { startListening, isListening } = useWhisperLikeVoice((text) => {
-  sendMessage(text);
-});
 
-  
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const sendMessage = async (msg) => {
-    const userMessage = msg || input;
-    if (!userMessage.trim() || loading) return;
+  // 🎙️ Voice input
+  const { startListening, isListening } = useWhisperLikeVoice((text) => {
+    sendMessage(text);
+  });
 
-    setMessages((prev) => [...prev, { role: "user", text: userMessage }]);
-    setInput("");
+  // 🧠 MAIN SEND FUNCTION
+  const sendMessage = async (voiceText) => {
+    const finalInput = voiceText || input;
+    if (!finalInput.trim()) return;
+
+    // user message
+    setMessages((prev) => [
+      ...prev,
+      { role: "user", text: finalInput },
+    ]);
+
     setLoading(true);
 
-    try {
-      const result = await askAI(userMessage);
+    const response = await askAI(finalInput);
 
-// result = { reply: "...", scrollTo: "projects" }
+    // short reply only
+    setMessages((prev) => [
+      ...prev,
+      {
+        role: "assistant",
+        text: response.replyText || "I’m here. Ask me about Zubair’s projects, skills, or experience.",
+      },
+    ]);
 
-setMessages((prev) => [
-  ...prev,
-  { role: "assistant", text: result.reply },
-]);
-
-speak(result.reply);
-
-// 🔽 AUTO-SCROLL TO SECTION
-if (result.scrollTo) {
-  const section = document.getElementById(result.scrollTo);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-}
- // 🔊 AI speaks
-    } catch {
-      const errorMsg = "Sorry, something went wrong.";
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", text: errorMsg },
-      ]);
-      speak(errorMsg);
-    } finally {
-      setLoading(false);
+    // scroll to section
+    if (response.scrollTo) {
+      document
+        .getElementById(response.scrollTo)
+        ?.scrollIntoView({ behavior: "smooth" });
     }
+
+    // voice output
+    if (response.voiceText) {
+      speak(response.voiceText);
+    }
+
+    setInput("");
+    setLoading(false);
   };
+
+  // 🔊 VOICE SPEAK
+  function speak(text) {
+    if (!window.speechSynthesis) return;
+
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US";
+    utterance.rate = 0.95;
+    utterance.pitch = 1;
+
+    window.speechSynthesis.speak(utterance);
+  }
 
   return (
     <>
       {/* Floating Button */}
       <button
         onClick={() => setOpen((p) => !p)}
-        className="fixed bottom-6 right-6 bg-slate-900 text-white px-4 py-3 rounded-full shadow-lg z-50"
+        className="fixed bottom-6 right-6 bg-slate-900 dark:bg-slate-700
+                   text-white px-4 py-3 rounded-full shadow-lg z-50"
       >
         🤖 Ask AI
       </button>
 
       {open && (
-        <div className="fixed bottom-20 right-6 w-80 bg-white rounded-xl shadow-xl flex flex-col z-50">
-          <div className="p-3 font-semibold border-b bg-slate-50">
+        <div
+          className="fixed bottom-20 right-6 w-80 bg-white dark:bg-slate-900
+                     text-slate-900 dark:text-slate-100 rounded-xl shadow-xl
+                     flex flex-col z-50"
+        >
+          <div
+            className="p-3 font-semibold border-b bg-slate-50 dark:bg-slate-800
+                       border-slate-200 dark:border-slate-700"
+          >
             AI Assistant
           </div>
 
@@ -82,13 +103,14 @@ if (result.scrollTo) {
                 key={i}
                 className={`p-2 rounded-lg max-w-[85%] ${
                   m.role === "user"
-                    ? "bg-slate-200 ml-auto text-right"
-                    : "bg-slate-100"
+                    ? "bg-slate-200 dark:bg-slate-700 ml-auto text-right"
+                    : "bg-slate-100 dark:bg-slate-800"
                 }`}
               >
                 {m.text}
               </div>
             ))}
+
             {loading && (
               <div className="italic text-xs text-slate-400">
                 AI is typing…
@@ -102,24 +124,27 @@ if (result.scrollTo) {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && sendMessage()}
               placeholder="Ask something..."
-              className="flex-1 border rounded-lg px-2 py-1 text-sm"
+              className="flex-1 rounded-lg px-2 py-1 text-sm
+                         bg-white dark:bg-slate-800 text-slate-900
+                         dark:text-slate-100 border border-slate-300
+                         dark:border-slate-700"
             />
 
             <button
               onClick={() => sendMessage()}
-              className="bg-slate-900 text-white px-3 rounded-lg"
+              className="bg-slate-900 dark:bg-slate-700
+                         text-white px-3 rounded-lg"
             >
               Send
             </button>
 
             <button
               onClick={startListening}
-              className="bg-slate-700 text-white px-3 rounded-lg"
+              className="bg-slate-700 dark:bg-slate-600
+                         text-white px-3 rounded-lg"
             >
               {isListening ? "🎙️" : "🎤"}
             </button>
-
-
           </div>
         </div>
       )}

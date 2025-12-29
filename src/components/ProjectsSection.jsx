@@ -7,7 +7,7 @@ const ProjectSection = () => {
       title: "Paralegal Agent & Visa Petition Agent",
       category: "Agentic AI · RAG · Full-Stack",
       description:
-        "Agentic retrieval-augmented drafting system using multi-agent orchestration to generate visa petitions, LoRs, and legal drafts with evaluation and versioning.",
+        "Implemented an agentic, retrieval-augmented drafting system: n8n-orchestrated multi-agent pipelines ingest PDFs/forms, extract facts, and generate petition drafts/LoRs with evaluation and versioning.",
       stack: [
         "Next.js",
         "React",
@@ -16,18 +16,34 @@ const ProjectSection = () => {
         "Vector Search",
         "n8n",
       ],
+      keyfeatures:[
+            "Multi-agent orchestration with n8n",
+            "PDF/form ingestion and fact extraction",
+            "Automated petition draft generation",
+            "Document versioning and evaluation",
+            "Vectorization and reranking capabilities",
+      ],
     },
     {
       title: "Movement-Monitoring Wearable",
       category: "IoT · Edge AI · Healthcare",
       description:
-        "Edge-AI wearable performing on-device inference to detect unusual patient movement and trigger caregiver alerts in real time.",
+        "Built a wearable that performs on-device inference to detect unusual patient movements and trigger caregiver alerts. Features real-time anomaly detection using embedded machine learning.",
       stack: [
         "Raspberry Pi Zero W",
         "MPU-9250 IMU",
         "Python",
-        "Embedded ML",
+        "Machine Learning",
       ],
+
+      keyfeatures:[
+            "On-device anomaly detection",
+            "Real-time movement monitoring",
+            "Caregiver alert system",
+            "Low-power edge computing",
+            "Wearable form factor",
+      ],
+      github: "https://github.com/zubairtusar/movement_recognition_system",
     },
   ];
 
@@ -37,29 +53,29 @@ const ProjectSection = () => {
   const researchProjects = [
     {
       title: "Sentiment Analysis with Transformer Ensembling",
-      category: "Research · NLP · Transformers",
       description:
-        "SE-vocabulary augmentation and transformer ensembling achieving 1–26% F1 improvement across software-engineering datasets. Published at ICSOFT 2023.",
-      stack: ["Transformers", "PyTorch", "NLP", "Ensembling"],
+        "Developed SE-vocabulary augmentation and transformer ensembling techniques for sentiment polarity analysis, achieving 1–26% improvement in weighted/macro F1 scores across four software engineering datasets.",
+      stack: ["📄 Published in ICSOFT 2023",
+              "📊 26% F1 Score Improvement"
+              ],
     },
     {
       title: "Complex Nurse Care Activity Recognition",
-      category: "Computer Vision · HAR · Healthcare",
       description:
-        "Smartphone-based HAR system robust to noisy labels using denoising filters, overlapping windows, and Random Forests.",
+        "Built a smartphone-accelerometer Human Activity Recognition (HAR) system featuring denoising filters, overlapping windows, multi-domain features, and Random Forest classification to handle high data/label noise.",
       stack: [
-        "Machine Learning",
-        "Random Forest",
-        "Signal Processing",
-        "HAR",
+        "📄 UbiComp/ISWC'21 Workshop",
+        "🥉 3rd Place HASCA Challenge",
       ],
     },
     {
       title: "Bangla License Plate Detection",
-      category: "Computer Vision · Synthetic Data",
       description:
-        "Improved Bangla license-plate detection using synthetic data generation from GTA-V to address real-world data scarcity.",
-      stack: ["YOLO", "OpenCV", "Synthetic Data"],
+        "Collaborated on synthetic data generation using Grand Theft Auto V (GTA V) to improve Bangla license plate detection models, addressing the lack of diverse training data in local contexts.",
+      stack: ["🎮 Synthetic Data Generation",
+              "🔍 Computer Vision",
+             
+        ],
     },
   ];
 
@@ -71,42 +87,42 @@ const ProjectSection = () => {
       icon: "🤖",
       title: "ARPU Enhancer Model",
       description:
-        "Contextual multi-armed bandit system integrated with offer recommendation engine.",
+        "Contextual multi-armed bandit system integrated with offer-recommendation engine for revenue optimization.",
       impact: "ARPU uplift optimization",
     },
     {
       icon: "📡",
       title: "Network Coverage Monitor",
       description:
-        "Geospatial intelligence system using KD/Ball-tree indexing.",
+        "Location intelligence system using KD/Ball-tree indexing for geospatial analysis, reducing processing time from weeks to hours.",
       impact: "2 weeks → 2 hours processing",
     },
     {
       icon: "🎯",
       title: "New-Site Recommender",
       description:
-        "Set-cover optimization solver using greedy algorithms.",
+        "Set-cover optimization problem solver for network site placement with greedy algorithm implementation.",
       impact: "58% business potential gain",
     },
     {
       icon: "👁️",
       title: "Trade Visibility System",
       description:
-        "Object detection across 700k+ retail outlets with real-time inference.",
+        "End-to-end monitoring using object detection models across 700k+ retail outlets with real-time inference.",
       impact: "~75% recall in production",
     },
     {
       icon: "📊",
       title: "Customer Segmentation",
       description:
-        "360° segmentation of 50M+ customers using behavioral modeling.",
+        "360° segmentation of 50M+ customers using statistical modeling and behavioral feature engineering.",
       impact: "Targeted advertising platform",
     },
     {
       icon: "⏰",
       title: "Intervention Time Model",
       description:
-        "Regression-based intervention time prediction model.",
+        "Regression-based preferred intervention time modeling for conversion rate optimization.",
       impact: "67% conversion rate",
     },
   ];
@@ -131,7 +147,7 @@ const ProjectSection = () => {
       title: "Computer Vision",
       skills: [
         "Object Detection (YOLO)",
-        "OCR",
+        "OCR Implementation",
         "Edge Detection",
         "Color Quantization",
         "Production Monitoring",
@@ -141,10 +157,11 @@ const ProjectSection = () => {
       icon: "🗺️",
       title: "Geospatial Analysis",
       skills: [
-        "KD / Ball Trees",
+        "Spatial Indexing (KD / Ball Trees)",
         "Location Intelligence",
+        "Network Propagation Modeling",
         "Coverage Analysis",
-        "Network Optimization",
+        "Optimization Algorithms",
       ],
     },
     {
@@ -155,6 +172,7 @@ const ProjectSection = () => {
         "Multi-agent Orchestration",
         "Prompt Engineering",
         "Workflow Automation",
+        "Document Processing",
       ],
     },
   ];
@@ -165,7 +183,7 @@ const ProjectSection = () => {
 
         {/* PAGE TITLE */}
         <h2 className="text-3xl md:text-4xl font-bold text-center">
-          Selected <span className="text-primary">Projects</span>
+           <span className="text-primary">Projects</span>
         </h2>
 
         {/* Applied Projects */}
@@ -196,6 +214,25 @@ const ProjectSection = () => {
                     </span>
                   ))}
                 </div>
+                <ul className="space-y-2 text-sm text-muted-foreground mt-3 mb-4">
+                  {project.keyfeatures?.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-primary">•</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 mt-4 px-4 py-2 text-sm font-medium rounded-lg bg-black text-white hover:bg-gray-800 transition"
+                      >
+                        View on GitHub
+                      </a>
+                    )}
               </div>
             ))}
           </div>
@@ -207,15 +244,13 @@ const ProjectSection = () => {
             Research & <span className="text-primary">Academic Projects</span>
           </h3>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {researchProjects.map((project, index) => (
               <div key={index} className="bg-card p-6 rounded-xl shadow-xs">
                 <h4 className="font-semibold text-lg mb-1">
                   {project.title}
                 </h4>
-                <p className="text-sm text-primary mb-2">
-                  {project.category}
-                </p>
+                
                 <p className="text-sm text-muted-foreground mb-4">
                   {project.description}
                 </p>
@@ -289,7 +324,7 @@ const ProjectSection = () => {
         {/* GitHub Button */}
         <div className="text-center pt-8">
           <a
-            href="https://github.com/YOUR_GITHUB_USERNAME"
+            href="https://github.com/zubairtusar"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition"

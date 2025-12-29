@@ -1,11 +1,10 @@
+import emailjs from "emailjs-com";
 import {
-  Instagram,
   Linkedin,
   Mail,
   MapPin,
   Phone,
   Send,
-  Twitch,
   Twitter,
 } from "lucide-react";
 import { useState } from "react";
@@ -20,13 +19,30 @@ export const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+    emailjs
+      .sendForm(
+        "service_vsp5f52",
+        "template_zrf8oo8",
+        e.target,
+        "OKo0B-yuptaQCLi0C"
+      )
+      .then(() => {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        e.target.reset();
+      })
+      .catch(() => {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
-      setIsSubmitting(false);
-    }, 1500);
   };
 
   return (
@@ -56,7 +72,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium">Email</h4>
                   <a
-                    href="mailto:hello@gmail.com"
+                    href="mailto:zubairrahman@iut-dhaka.edu"
                     className="text-muted-foreground hover:text-primary"
                   >
                     zubairrahman@iut-dhaka.edu
@@ -71,10 +87,10 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium">Phone</h4>
                   <a
-                    href="tel:+11234567890"
+                    href="tel:+8801863835789"
                     className="text-muted-foreground hover:text-primary"
                   >
-                    01863835789
+                    01863-835789
                   </a>
                 </div>
               </div>
@@ -94,11 +110,9 @@ export const ContactSection = () => {
 
             <div className="pt-8">
               <h4 className="font-medium mb-4">Connect With Me</h4>
-              <div className="flex space-x-4">
-                <Linkedin />
-                <Twitter />
-                <Instagram />
-                <Twitch />
+              <div className="flex space-x-4 text-primary">
+                <Linkedin className="cursor-pointer hover:opacity-80" />
+                <Twitter className="cursor-pointer hover:opacity-80" />
               </div>
             </div>
           </div>
@@ -109,6 +123,7 @@ export const ContactSection = () => {
 
             <form className="space-y-6" onSubmit={handleSubmit}>
               <input
+                name="name"
                 type="text"
                 required
                 placeholder="Your Name"
@@ -116,6 +131,7 @@ export const ContactSection = () => {
               />
 
               <input
+                name="email"
                 type="email"
                 required
                 placeholder="Your Email"
@@ -123,9 +139,11 @@ export const ContactSection = () => {
               />
 
               <textarea
+                name="message"
                 required
                 placeholder="Your Message"
                 className="w-full px-4 py-3 rounded-md border resize-none"
+                rows={5}
               />
 
               <button
