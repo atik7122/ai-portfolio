@@ -1,12 +1,17 @@
 import emailjs from "emailjs-com";
+import { getVisitorCountry } from "./getVisitorCountry";
 
-export function notifyVisit() {
+
+export async function notifyVisit() {
+    const country = await getVisitorCountry() || "Unknown";
+
   emailjs.send(
     "service_up01j3c",
     "template_5k7zlba",
     {
-      page: "Home",
-      time: new Date().toLocaleString()
+    country: country,              // ✅ must be 'country'
+    page: "Home",
+    time: new Date().toLocaleString(),
     },
     "OKo0B-yuptaQCLi0C"
   )
