@@ -118,46 +118,66 @@ export const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card p-8 rounded-lg shadow-xs">
-            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
+          <div className="bg-card dark:bg-slate-900 p-8 rounded-lg shadow-xs">
+  <h3 className="text-2xl font-semibold mb-6 text-slate-900 dark:text-slate-100">
+    Send a Message
+  </h3>
 
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <input
-                name="name"
-                type="text"
-                required
-                placeholder="Your Name"
-                className="w-full px-4 py-3 rounded-md border"
-              />
+  <form className="space-y-6" onSubmit={handleSubmit}>
+    
+    <input
+      name="name"
+      type="text"
+      required
+      placeholder="Your Name"
+      className="w-full px-4 py-3 rounded-md
+                 bg-white dark:bg-slate-800
+                 text-slate-900 dark:text-slate-100
+                 border border-slate-300 dark:border-slate-700
+                 placeholder-slate-400 dark:placeholder-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-slate-500"
+    />
 
-              <input
-                name="email"
-                type="email"
-                required
-                placeholder="Your Email"
-                className="w-full px-4 py-3 rounded-md border"
-              />
+    <input
+      name="email"
+      type="email"
+      required
+      placeholder="Your Email"
+      className="w-full px-4 py-3 rounded-md
+                 bg-white dark:bg-slate-800
+                 text-slate-900 dark:text-slate-100
+                 border border-slate-300 dark:border-slate-700
+                 placeholder-slate-400 dark:placeholder-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-slate-500"
+    />
 
-              <textarea
-                name="message"
-                required
-                placeholder="Your Message"
-                className="w-full px-4 py-3 rounded-md border resize-none"
-                rows={5}
-              />
+    <textarea
+      name="message"
+      required
+      rows={5}
+      placeholder="Your Message"
+      className="w-full px-4 py-3 rounded-md resize-none
+                 bg-white dark:bg-slate-800
+                 text-slate-900 dark:text-slate-100
+                 border border-slate-300 dark:border-slate-700
+                 placeholder-slate-400 dark:placeholder-slate-500
+                 focus:outline-none focus:ring-2 focus:ring-slate-500"
+    />
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
-                )}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-                <Send size={16} />
-              </button>
-            </form>
-          </div>
+    <button
+      type="submit"
+      disabled={isSubmitting}
+      className={cn(
+        "cosmic-button w-full flex items-center justify-center gap-2"
+      )}
+    >
+      {isSubmitting ? "Sending..." : "Send Message"}
+      <Send size={16} />
+    </button>
+
+  </form>
+</div>
+
         </div>
       </div>
     </section>

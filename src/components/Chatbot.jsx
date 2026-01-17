@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import askAI from "../lib/askAI";
 import useWhisperLikeVoice from "../lib/useWhisperLikeVoice";
 
@@ -14,6 +14,13 @@ export default function Chatbot() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // 🔽 auto-scroll reference
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, loading]);
+
   // 🎙️ Voice input
   const { startListening, isListening } = useWhisperLikeVoice((text) => {
     sendMessage(text);
@@ -24,26 +31,27 @@ export default function Chatbot() {
     const finalInput = voiceText || input;
     if (!finalInput.trim()) return;
 
-    // user message
     setMessages((prev) => [
       ...prev,
       { role: "user", text: finalInput },
     ]);
 
     setLoading(true);
+    setInput("");
 
     const response = await askAI(finalInput);
 
-    // short reply only
     setMessages((prev) => [
       ...prev,
       {
         role: "assistant",
-        text: response.replyText || "I’m here. Ask me about Zubair’s projects, skills, or experience.",
+        text:
+          response.replyText ||
+          "I’m here. Ask me about Zubair’s projects, skills, or experience.",
       },
     ]);
 
-    // scroll to section
+    // scroll page section
     if (response.scrollTo) {
       document
         .getElementById(response.scrollTo)
@@ -55,7 +63,6 @@ export default function Chatbot() {
       speak(response.voiceText);
     }
 
-    setInput("");
     setLoading(false);
   };
 
@@ -86,10 +93,13 @@ export default function Chatbot() {
 
       {open && (
         <div
-          className="fixed bottom-20 right-6 w-80 bg-white dark:bg-slate-900
-                     text-slate-900 dark:text-slate-100 rounded-xl shadow-xl
-                     flex flex-col z-50"
+          className="fixed bottom-20 right-6 w-80 h-[420px]
+                     bg-white dark:bg-slate-900
+                     text-slate-900 dark:text-slate-100
+                     rounded-xl shadow-xl flex flex-col
+                     z-50 overflow-hidden"
         >
+          {/* Header */}
           <div
             className="p-3 font-semibold border-b bg-slate-50 dark:bg-slate-800
                        border-slate-200 dark:border-slate-700"
@@ -97,6 +107,7 @@ export default function Chatbot() {
             AI Assistant
           </div>
 
+          {/* Messages */}
           <div className="p-3 flex-1 overflow-y-auto space-y-2 text-sm">
             {messages.map((m, i) => (
               <div
@@ -116,8 +127,12 @@ export default function Chatbot() {
                 AI is typing…
               </div>
             )}
+
+            {/* auto-scroll anchor */}
+            <div ref={messagesEndRef} />
           </div>
 
+          {/* Input */}
           <div className="p-2 border-t flex gap-2">
             <input
               value={input}

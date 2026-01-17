@@ -6,7 +6,7 @@ const Tag = ({ children }) => (
 
 export const AcademiaSection = () => {
   return (
-    <section id="academia" className="py-24 px-4">
+    <section id="academic" className="py-24 px-4">
       <div className="container mx-auto max-w-6xl space-y-20">
 
         {/* ===== Title ===== */}
@@ -118,53 +118,74 @@ export const AcademiaSection = () => {
               </h4>
               </div>
               
-            <div className="grid md:grid-cols-4 gap-1 mt-6 text-sm">
-  
-            {/* Card 1 */}
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
-              <h5 className="font-semibold text-lg mb-2">Core Computer Science</h5>
-              <p className="text-muted-foreground">
-                    -Data Structures <br />
-                    -Algorithms <br />
-                    -Database Management <br />
-                    -Operating Systems <br />
-                    -Microprocessor
-              </p>
-            </div>
+            <div className="grid md:grid-cols-4 gap-4 mt-6 text-sm">
 
-            {/* Card 2 */}
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
-              <h5 className="font-semibold text-lg mb-2">AI & Data Science</h5>
-              <p className="text-muted-foreground">
-                    -Probability and Statistics <br />
-                    -Big Data Analysis <br />
-                    -Machine Learning <br />
-                    -Artificial Intelligence
-                    
-              </p>
-            </div>
+  {/* Card 1 */}
+  <div className="bg-white dark:bg-slate-800
+                  text-slate-900 dark:text-slate-100
+                  rounded-xl shadow-md dark:shadow-none
+                  p-6 hover:shadow-lg transition">
+    <h5 className="font-semibold text-lg mb-2">
+      Core Computer Science
+    </h5>
+    <p className="text-slate-600 dark:text-slate-300">
+      - Data Structures <br />
+      - Algorithms <br />
+      - Database Management <br />
+      - Operating Systems <br />
+      - Microprocessor
+    </p>
+  </div>
 
-            {/* Card 3 */}
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
-              <h5 className="font-semibold text-lg mb-2">Software Engineering</h5>
-              <p className="text-muted-foreground">
-                    -Software Security <br />
-                    -Software Maintenance <br />
-                    -Software Requirement and Specification <br />
-                    -Design Patterns <br />
-                    -Technical Report Writing
-              </p>
-            </div>
+  {/* Card 2 */}
+  <div className="bg-white dark:bg-slate-800
+                  text-slate-900 dark:text-slate-100
+                  rounded-xl shadow-md dark:shadow-none
+                  p-6 hover:shadow-lg transition">
+    <h5 className="font-semibold text-lg mb-2">
+      AI & Data Science
+    </h5>
+    <p className="text-slate-600 dark:text-slate-300">
+      - Probability and Statistics <br />
+      - Big Data Analysis <br />
+      - Machine Learning <br />
+      - Artificial Intelligence
+    </p>
+  </div>
 
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
-              <h5 className="font-semibold text-lg mb-2">Development</h5>
-              <p className="text-muted-foreground">
-                    -Embedded Software Development <br />
-                    -Server Programming <br />
-              </p>
-            </div>
+  {/* Card 3 */}
+  <div className="bg-white dark:bg-slate-800
+                  text-slate-900 dark:text-slate-100
+                  rounded-xl shadow-md dark:shadow-none
+                  p-6 hover:shadow-lg transition">
+    <h5 className="font-semibold text-lg mb-2">
+      Software Engineering
+    </h5>
+    <p className="text-slate-600 dark:text-slate-300">
+      - Software Security <br />
+      - Software Maintenance <br />
+      - Software Requirement and Specification <br />
+      - Design Patterns <br />
+      - Technical Report Writing
+    </p>
+  </div>
 
-          </div>
+  {/* Card 4 */}
+  <div className="bg-white dark:bg-slate-800
+                  text-slate-900 dark:text-slate-100
+                  rounded-xl shadow-md dark:shadow-none
+                  p-6 hover:shadow-lg transition">
+    <h5 className="font-semibold text-lg mb-2">
+      Development
+    </h5>
+    <p className="text-slate-600 dark:text-slate-300">
+      - Embedded Software Development <br />
+      - Server Programming
+    </p>
+  </div>
+
+</div>
+
 
           <div>
               <h4 className="font-semibold mt-10 mb-4 text-lg">
