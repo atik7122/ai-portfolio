@@ -1,8 +1,3 @@
-const Tag = ({ children }) => (
-  <span className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary">
-    {children}
-  </span>
-);
 
 const Card = ({ children }) => (
   <div className="gradient-border p-6 card-hover">{children}</div>
