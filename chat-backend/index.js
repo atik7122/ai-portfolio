@@ -36,6 +36,7 @@ app.use(express.json());
    MANUAL EMAIL TEST ROUTE
 ---------------------------------------- */
 app.get("/send-summary", async (req, res) => {
+    res.send("AI Portfolio Backend is running 🚀");
   try {
     const summary = getConversationSummary();
 
