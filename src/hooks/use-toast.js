@@ -78,8 +78,12 @@ const reducer = (state, action) => {
         ...state,
         toasts: state.toasts.filter((t) => t.id !== action.toastId),
       };
+
+    default:
+      return state; // ✅ REQUIRED FOR VERCEL CI
   }
 };
+
 
 const listeners = [];
 
@@ -100,6 +104,8 @@ function toast(props) {
       type: "UPDATE_TOAST",
       toast: { ...props, id },
     });
+
+    
   const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id });
 
   dispatch({
@@ -138,7 +144,10 @@ function useToast() {
     ...state,
     toast,
     dismiss: (toastId) => dispatch({ type: "DISMISS_TOAST", toastId }),
+ 
   };
+
+  
 }
 
 export { toast, useToast };
