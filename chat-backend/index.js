@@ -36,17 +36,10 @@ app.use(express.json());
    MANUAL EMAIL TEST ROUTE
 ---------------------------------------- */
 
-app.get("/", (req, res) => {
-  res.send("AI Portfolio Backend is running 🚀");
-});
 
-app.get("/api", (req, res) => {
-  res.json({ status: "API is live ✅" });
-});
 
 
 app.get("/send-summary", async (req, res) => {
-    res.send("AI Portfolio Backend is running 🚀");
   try {
     const summary = getConversationSummary();
 
@@ -62,9 +55,20 @@ app.get("/send-summary", async (req, res) => {
   }
 });
 
+
 /* ----------------------------------------
    CHAT ENDPOINT
 ---------------------------------------- */
+
+
+app.get("/", (req, res) => {
+  res.send("AI Portfolio Backend is running 🚀");
+});
+
+app.get("/api", (req, res) => {
+  res.json({ status: "API is live ✅" });
+});
+
 app.post("/chat", async (req, res) => {
   try {
     const userMessage = req.body.message;
@@ -164,5 +168,6 @@ if (totalQuestions >= 5) {
    SERVER
 ---------------------------------------- */
 app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
+
