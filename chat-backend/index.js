@@ -69,6 +69,7 @@ app.get("/api", (req, res) => {
   res.json({ status: "API is live ✅" });
 });
 
+
 app.post("/chat", async (req, res) => {
   try {
     const userMessage = req.body.message;
