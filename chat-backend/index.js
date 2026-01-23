@@ -18,7 +18,7 @@ import { sendSummaryEmail } from "./utils/sendSummaryEmail.js";
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
@@ -35,6 +35,16 @@ app.use(express.json());
 /* ----------------------------------------
    MANUAL EMAIL TEST ROUTE
 ---------------------------------------- */
+
+app.get("/", (req, res) => {
+  res.send("AI Portfolio Backend is running 🚀");
+});
+
+app.get("/api", (req, res) => {
+  res.json({ status: "API is live ✅" });
+});
+
+
 app.get("/send-summary", async (req, res) => {
     res.send("AI Portfolio Backend is running 🚀");
   try {
