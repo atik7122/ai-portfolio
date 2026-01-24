@@ -216,19 +216,27 @@
 
 
 // Intent matching
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 export default async function askAI(userInput) {
   try {
-    const res = await fetch("http://localhost:5000/chat", {
+    const res = await fetch(`${BACKEND_URL}/chat`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ message: userInput }),
     });
 
+    if (!res.ok) {
+      throw new Error("Backend error");
+    }
+
     const data = await res.json();
     return data;
-
   } catch (error) {
     console.error("AI ERROR:", error);
+
     return {
       replyText: "Server connection failed.",
       voiceText: "Server connection failed.",
@@ -236,6 +244,7 @@ export default async function askAI(userInput) {
     };
   }
 }
+
 
 
 
