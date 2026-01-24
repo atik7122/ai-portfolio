@@ -216,7 +216,7 @@
 
 
 // Intent matching
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_URL = "https://ai-portfolio-backend-bcgd.onrender.com";
 
 export default async function askAI(userInput) {
   try {
