@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import askAI from "../lib/askAI";
 import useWhisperLikeVoice from "../lib/useWhisperLikeVoice";
 
-const BACKEND_URL = "https://ai-portfolio-backend-bcgd.onrender.com";
-
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
