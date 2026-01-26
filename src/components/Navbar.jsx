@@ -4,8 +4,8 @@ import { cn } from "../lib/utils";
 
 const navItems = [
   { name: "Home", href: "#hero" },
-  { name: "Academia", href: "#academia" },
-  { name: "Professional", href: "#professional" },
+  { name: "Academia", href: "#academic" },
+  { name: "Professional", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Passions", href: "#passions" },

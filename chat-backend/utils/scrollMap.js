@@ -11,7 +11,7 @@ export function getScrollTarget(intent, message) {
     if (text.includes("contact") || text.includes("email"))
       return "contact";
     if (text.includes("academic")|| text.includes("education"))
-     return "academic";
+     return "academia";
 
 
     if (

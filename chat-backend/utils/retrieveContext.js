@@ -19,12 +19,12 @@ if (
   return knowledgeBase.experience;
 }
 if (
-  text.includes("academic") ||
+  text.includes("academia") ||
   text.includes("education") ||
   text.includes("collage") ||
   text.includes("university")
 ) {
-  return knowledgeBase.academic;
+  return knowledgeBase.academia;
 }
 
   if (text.includes("research") || text.includes("paper"))

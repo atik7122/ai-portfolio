@@ -5,7 +5,7 @@ He currently works at Robi Axiata Limited, building large-scale machine learning
 `,
 
 
-    academic: `
+    academia: `
       education: Zubair completed his B.Sc in Software Engineering from Islamic University of Technology (IUT) between 2018 and 2022.
 
       cgpa: His B.Sc CGPA is 3.64 out of 4.00, with a strong 3.88 CGPA in the last four semesters.

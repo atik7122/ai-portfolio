@@ -17,7 +17,7 @@ export const knowledge = [
   {
     keywords: ["research", "thesis"],
     reply:
-      "His academic research focuses on applied AI systems, intelligent assistants, and solving real-world problems using structured data.",
+      "His academia research focuses on applied AI systems, intelligent assistants, and solving real-world problems using structured data.",
   },
   {
     keywords: ["experience", "work"],

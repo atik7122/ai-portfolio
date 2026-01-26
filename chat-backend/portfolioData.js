@@ -2,7 +2,7 @@ export const knowledgeBase = {
   intro: "Zubair Rahman Tusar is an AI and Data Science professional working at Robi Axiata Limited."
 };
 
-export const academic = {
+export const academia = {
   education: "He completed his B.Sc in Software Engineering from Islamic University of Technology."
 };
 

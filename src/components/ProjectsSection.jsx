@@ -48,7 +48,7 @@ const ProjectSection = () => {
   ];
 
   /* ===========================
-     Research & Academic Projects
+     Research & academia Projects
   ============================ */
   const researchProjects = [
     {
@@ -241,7 +241,7 @@ const ProjectSection = () => {
         {/* Research Projects */}
         <div>
           <h3 className="text-2xl font-bold mb-8">
-            Research & <span className="text-primary">Academic Projects</span>
+            Research & <span className="text-primary">academia Projects</span>
           </h3>
 
           <div className="grid md:grid-cols-3 gap-6">

@@ -216,6 +216,7 @@
 
 
 // Intent matching
+// const BACKEND_URL = "http://localhost:5000";
 const BACKEND_URL = "https://ai-portfolio-backend-bcgd.onrender.com";
 
 export default async function askAI(userInput) {
