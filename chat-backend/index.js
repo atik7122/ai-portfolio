@@ -1,3 +1,11 @@
+import mongoose from "mongoose";
+
+
+
+
+import { connectDB } from "./db/connectDB.js";
+import Chat from "./models/Chat.js";
+
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
@@ -17,6 +25,10 @@ import { sendSummaryEmail } from "./utils/sendSummaryEmail.js";
 
 dotenv.config();
 
+mongoose.connect(process.env.MONGO_URI)
+.then(()=> console.log("MongoDB connected"))
+.catch(err => console.error("MongoDB error:", err));
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -35,8 +47,6 @@ app.use(express.json());
 /* ----------------------------------------
    MANUAL EMAIL TEST ROUTE
 ---------------------------------------- */
-
-
 
 
 app.get("/send-summary", async (req, res) => {
@@ -137,6 +147,13 @@ app.post("/chat", async (req, res) => {
 
     const reply = completion.choices[0].message.content;
 
+    await Chat.create({
+    userMessage: resolvedMessage,
+    aiReply: reply,
+    country,
+});
+
+
     /* ---- auto email after 5 portfolio questions ---- */
 const summary = getConversationSummary();
 
@@ -164,6 +181,9 @@ if (totalQuestions >= 5) {
     });
   }
 });
+
+connectDB();
+
 
 /* ----------------------------------------
    SERVER
