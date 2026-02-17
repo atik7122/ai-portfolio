@@ -1,13 +1,19 @@
 import mongoose from "mongoose";
 
-const chatSchema = new mongoose.Schema({
-  userMessage: String,
-  aiReply: String,
+const ChatSchema = new mongoose.Schema({
+  ip: String,
   country: String,
-  time: {
+  messages: [
+    {
+      role: String,
+      text: String,
+      time: String
+    }
+  ],
+  createdAt: {
     type: Date,
-    default: Date.now,
-  },
+    default: Date.now
+  }
 });
 
-export default mongoose.model("Chat", chatSchema);
+export default mongoose.model("Chat", ChatSchema);

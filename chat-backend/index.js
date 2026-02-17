@@ -80,6 +80,27 @@ app.get("/api", (req, res) => {
 });
 
 
+app.get("/visit", async (req, res) => {
+  try {
+    const ip =
+      req.headers["x-forwarded-for"]?.split(",")[0] ||
+      req.socket.remoteAddress;
+
+    const country = await getCountryFromIP(ip);
+
+    console.log("Visitor:", country, ip);
+
+    await sendSummaryEmail(); // or pass country/ip if your function needs it
+
+    res.send("Visit tracked & email sent ✅");
+  } catch (err) {
+    console.error("Visit error:", err);
+    res.status(500).send("Visit tracking failed");
+  }
+});
+
+
+
 app.post("/chat", async (req, res) => {
   try {
     const userMessage = req.body.message;
@@ -103,11 +124,12 @@ app.post("/chat", async (req, res) => {
     const context = retrieveContext(resolvedMessage);
 
     /* ---- country detection ---- */
-    const ip =
-      req.headers["x-forwarded-for"]?.split(",")[0] ||
-      req.socket.remoteAddress;
+      const ip =
+        req.headers["x-forwarded-for"]?.split(",")[0] ||
+        req.socket.remoteAddress;
 
-    const country = await getCountryFromIP(ip);
+      const country = await getCountryFromIP(ip);
+
 
     /* ---- log portfolio questions ---- */
     if (intent === "PORTFOLIO") {

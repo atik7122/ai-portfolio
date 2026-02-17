@@ -6,6 +6,10 @@ import { notifyVisit } from "./utils/notifyVisit";
 
 
 function App() {
+  useEffect(() => {
+  fetch("http://localhost:5000/visit");
+}, []);
+
 
     useEffect(() => {
     const visited = sessionStorage.getItem("visited");
