@@ -82,9 +82,12 @@ app.get("/api", (req, res) => {
 
 app.get("/visit", async (req, res) => {
   try {
-    const ip =
-      req.headers["x-forwarded-for"]?.split(",")[0] ||
-      req.socket.remoteAddress;
+const ip =
+  req.headers["x-forwarded-for"] ||
+  req.headers["x-real-ip"] ||
+  req.socket.remoteAddress ||
+  "8.8.8.8";
+
 
     const country = await getCountryFromIP(ip);
 
@@ -124,9 +127,12 @@ app.post("/chat", async (req, res) => {
     const context = retrieveContext(resolvedMessage);
 
     /* ---- country detection ---- */
-      const ip =
-        req.headers["x-forwarded-for"]?.split(",")[0] ||
-        req.socket.remoteAddress;
+const ip =
+  req.headers["x-forwarded-for"] ||
+  req.headers["x-real-ip"] ||
+  req.socket.remoteAddress ||
+  "8.8.8.8";
+
 
       const country = await getCountryFromIP(ip);
 
@@ -169,11 +175,34 @@ app.post("/chat", async (req, res) => {
 
     const reply = completion.choices[0].message.content;
 
-    await Chat.create({
-    userMessage: resolvedMessage,
-    aiReply: reply,
-    country,
-});
+// await Chat.create({
+//   country,
+//   messages: [
+//     {
+//       user: resolvedMessage,
+//       bot: reply,
+//       time: new Date()
+//     }
+//   ]
+// });
+
+await Chat.findOneAndUpdate(
+  { sessionId },
+  {
+    $push: {
+      messages: {
+        user: resolvedMessage,
+        bot: reply,
+        time: new Date()
+      }
+    },
+    country
+  },
+  { upsert: true, new: true }
+);
+
+
+
 
 
     /* ---- auto email after 5 portfolio questions ---- */
